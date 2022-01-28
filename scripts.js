@@ -14,14 +14,17 @@ function selecionar_prato(indice) {
         }
         else {
             todosOsPratos[i].classList.toggle("borda-azul")
-            if (todosOsPratos[i].classList.contains("borda-azul")) {
+            if (todosOsPratos[i].classList.contains("borda-azul") == true) {
                 selecionouOPrato = 1;
             } else {
                 selecionouOPrato = 0;
             }
+
         }
     }
+    continuar()
 }
+
 function selecionar_bebida(indice) {
     for (let i = 0; i < todosAsBebidas.length; i++) {
         if (i != indice) {
@@ -36,6 +39,7 @@ function selecionar_bebida(indice) {
             }
         }
     }
+    continuar()
 }
 
 function selecionar_sobremesa(indice) {
@@ -47,17 +51,55 @@ function selecionar_sobremesa(indice) {
             todosAsSobremesas[i].classList.toggle("borda-azul")
             if (todosAsSobremesas[i].classList.contains("borda-azul")) {
                 selecionouASobremesa = 1;
+
             } else {
                 selecionouASobremesa = 0;
             }
         }
     }
+    continuar()
 }
 
-function comprar(){
-selecionouOsTres = selecionouOPrato + selecionouaBebida + selecionouASobremesa;
 
-if (selecionouOsTres != 3){
-    alert("Selecione um de cada")
-}
+function continuar() {
+    if (selecionouOPrato === 0 || selecionouaBebida === 0 || selecionouASobremesa === 0) {
+        let fundoClicar = document.querySelector("footer > div");
+        if (fundoClicar.classList.contains("comprar-verde") == true) {
+            fundoClicar.classList.remove("comprar-verde")
+        } if (fundoClicar.classList.contains("falta-selecionar-item") == false) {
+            fundoClicar.classList.add("falta-selecionar-item")
+        }
+
+        let botao = document.querySelector("footer > div")
+        botao.onclick = clicarEmComprar;
+        let clicarEmComprar = function () {
+            let elemento = document.querySelector("footer > div");
+            alert("Selecione o item faltante");
+        }
+        
+    }
+
+    if (selecionouOPrato === 1 && selecionouaBebida === 1 && selecionouASobremesa === 1) {
+        let comprar = document.querySelector("footer > div > p");
+        comprar.innerHTML = 'Comprar';
+
+        let fundoClicar = document.querySelector("footer > div");
+        if (fundoClicar.classList.contains("comprar-verde") == false) {
+            fundoClicar.classList.add("comprar-verde");
+        }
+        if (fundoClicar.classList.contains("falta-selecionar-item")) {
+            fundoClicar.classList.remove("falta-selecionar-item");
+        }
+
+        let botao = document.querySelector("footer > div")
+        botao.onclick = clicarEmComprar;
+
+        let clicarEmComprar = function () {
+            let elemento = document.querySelector("footer > div");
+            alert("Continuar para frente");
+        }
+
+        
+    }
+
 }
