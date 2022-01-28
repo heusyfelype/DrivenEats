@@ -50,6 +50,10 @@ section {
     justify-content: flex-start;
 }
 
+section::-webkit-scrollbar{
+    display: none;
+}
+
 article {
     width: 172px;
     min-width: 172px;
@@ -136,7 +140,6 @@ footer div {
     bottom: 16px;
     background: #CBCBCB;
     border-radius: 50px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,4 +153,9 @@ footer div p {
     letter-spacing: 0.018em;
     color: #FFFFFF;
     width: 60%;
+}
+
+
+.borda-azul{
+    border: 4px solid blue;
 }
