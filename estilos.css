@@ -2,6 +2,8 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #e5e5e5;
@@ -16,6 +18,7 @@ header {
     flex-direction: column;
     justify-content: center;
     position: fixed;
+    z-index: 1;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -37,8 +40,8 @@ header p {
 
 
 main {
-    margin: 100px 0px;
-    padding-left: 19px;
+    margin: 100px 0px 100px 0px;
+    /* padding-right: 19px; */
 }
 
 section {
@@ -48,6 +51,8 @@ section {
     flex-wrap: nowrap;
     overflow-x: scroll;
     justify-content: flex-start;
+    padding-right: 19px;
+    
 }
 
 section::-webkit-scrollbar {
@@ -64,7 +69,10 @@ article {
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
     padding: 18px 14px;
-    margin-right: 19px;
+    margin-left: 19px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 
@@ -74,6 +82,14 @@ article img {
     height: 82px;
     margin-bottom: 4px;
     border-radius: 4px;
+}
+
+article .icone{
+    position: absolute;
+    right: 0.75em;
+    bottom: 0.5em;
+    font-size: large;
+    color: #32B72F;
 }
 
 section div {
@@ -117,8 +133,9 @@ h2 {
     line-height: 32px;
     letter-spacing: 0.018em;
     color: #333333;
-    padding-top: 30px;
-    padding-bottom: 8px;
+    padding: 30px 0px 8px 19px;
+    /* padding-top: 30px; */
+    /* padding-bottom: 8px; */
 }
 
 footer {
@@ -183,28 +200,21 @@ footer div p {
     background-color: rgba(238, 238, 238, 0.9);
     z-index: 1;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .confirmacao-finalizar-pedido {
     width: 90%;
     height: 60%;
-    position: fixed;
     top: 20%;
     left: 5%;
     background: #50D074;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
-}
 
-.negrito{
-    font-weight: 600;
-}
-
-.escondido {
-    display: none;
-}
-
-.confirmacao-finalizar-pedido {
     font-family: Roboto;
     font-style: normal;
     font-size: 22px;
@@ -217,6 +227,15 @@ footer div p {
     justify-content: center;
     align-items: center;
 }
+
+.negrito{
+    font-weight: 600;
+}
+
+.escondido {
+    display: none;
+}
+
 
 .confirmacao-finalizar-pedido>p {
     padding: 30px 0px;
